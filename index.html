@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BulmaDatePicker</title>
+
+    <script src="BulmaDatePicker.js"></script>
+    <link rel="stylesheet" href="BulmaDatePicker.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" />
+</head>
+
+<body class="has-navbar-fixed-top">
+    <nav class="navbar is-fixed-top is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <i class="bulma mdi mdi-calendar-range"></i><b>BulmaDatePicker</b>
+            </a>
+            <a class="navbar-item" href="https://github.com/danielmartling/BulmaDatePicker">
+                <span class="mdi mdi-github"></span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="section">
+            <div class="columns">
+                <div class="column">
+                    <div class="content">
+                        <p class="title is-3">Example page</p>
+                        <p class="subtitle is-5">For BulmaDatePicker</p>
+                        <p>Text</p>
+                        <p>Date selected: <span id="dateSelected"></span></p>
+                        <p>Range selected: <span id="rangeSelected"></span></p>
+                        <div class="buttons">
+                            <button class="button is-small" id="setDateButton">Set date</button>
+                            <button class="button is-small" id="setRangeButton">Set range</button>
+                            <button class="button is-small" id="clearButton">Clear inputs</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <p>Date picker
+                        <div id="single"></div></p>
+                        <p>Range picker
+                        <div id="range"></div></p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <p>Always open date picker
+                        <div id="openDate"></div></p>
+                        <p>Always open range picker
+                        <div id="openRange"></div></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    const single = new BulmaDatePicker(document.getElementById('single'), { range: false });
+
+    const range = new BulmaDatePicker(document.getElementById('range'), { range: true });
+
+    const openDate = new BulmaDatePicker(document.getElementById('openDate'), { alwaysOpen: true });
+
+    const openRange = new BulmaDatePicker(document.getElementById('openRange'), { range: true, alwaysOpen: true });
+
+    document.getElementById("setDateButton")
+        .addEventListener("click", () => {
+            single.setValue("2025-09-01");
+            openDate.setValue("2025-09-01");
+        });
+
+    document.getElementById("setRangeButton")
+        .addEventListener("click", () => {
+            range.setValue(["2025-08-29", "2025-09-03"]);
+            openRange.setValue(["2025-08-29", "2025-09-03"]);
+        });
+
+    document.getElementById("clearButton")
+        .addEventListener("click", () => {
+            single.clear();
+            range.clear();
+            openDate.clear();
+            openRange.clear();
+        });
+
+    single.container.addEventListener("select", (e) => {
+        document.getElementById("dateSelected").innerHTML = e.detail.value;
+    })
+
+    range.container.addEventListener("select", (e) => {
+        document.getElementById("rangeSelected").innerHTML = e.detail.value;
+    })
+
+    openDate.container.addEventListener("select", (e) => {
+        document.getElementById("dateSelected").innerHTML = e.detail.value;
+    })
+
+    openRange.container.addEventListener("select", (e) => {
+        document.getElementById("rangeSelected").innerHTML = e.detail.value;
+    })
+
+</script>
