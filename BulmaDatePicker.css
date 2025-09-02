@@ -47,6 +47,12 @@
     justify-content: center;
 }
 
+.datepicker-grid .date-cell.empty,
+.datepicker-grid .date-cell.empty:hover {
+    cursor: default;
+    background: none;
+}
+
 .datepicker-grid .date-cell {
     cursor: pointer;
 }
