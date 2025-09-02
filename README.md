@@ -22,6 +22,8 @@ Choose a date or a date range from a input constructed from Bulma css elements.
 
 ## Usage example
 
+See the [example page](https://danielmartling.github.io/BulmaDatePicker/)!
+
 1. Create a div: `<div id="dateControl"></div>`.
 2. Initialize it in js: `const dateControl = new BulmaDatePicker(document.getElementById('dateControl'), options);`.
 
