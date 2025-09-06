@@ -88,7 +88,7 @@ class BulmaDatePicker {
         startControl.innerHTML = `
             <input class="input start-date calendar-toggle" type="text" placeholder="YYYY-MM-DD" ${this.options.static ? "readonly" : ""}>
             <span class="icon is-right is-clickable calendar-toggle">
-                <i class="bulma mdi ${this.options.range ? 'mdi-calendar-range' : 'mdi-calendar'}"></i>
+                <span class="iconify" data-icon="${this.options.range ? 'mdi-calendar-range' : 'mdi-calendar'}"></span>
             </span>
         `;
         if (this.options.alwaysOpen) {
@@ -101,7 +101,7 @@ class BulmaDatePicker {
             arrow.classList = "control is-static";
             arrow.innerHTML = `
                 <span class="icon is-clickable calendar-toggle">
-                    <i class="bulma mdi mdi-arrow-right"></i>
+                    <span class="iconify" data-icon="mdi-arrow-right"></span>
                 </span>
             `;
             if (this.options.alwaysOpen) {
@@ -114,7 +114,7 @@ class BulmaDatePicker {
             endControl.innerHTML = `
             <input class="input end-date calendar-toggle" type="text" placeholder="YYYY-MM-DD" ${this.options.static ? "readonly" : ""}>
             <span class="icon is-right is-clickable calendar-toggle">
-                <i class="bulma mdi mdi-calendar-range"></i>
+                <span class="iconify" data-icon="mdi-calendar-range"></span>
             </span>
         `;
             if (this.options.alwaysOpen) {
@@ -187,8 +187,8 @@ class BulmaDatePicker {
             <nav class="level is-mobile">
                 <div class="level-left">
                     <div class="level-item">
-                        <button class="button is-small prev-year"><i class="bulma mdi mdi-chevron-double-left"></i></button>
-                        <button class="button is-small prev-month"><i class="bulma mdi mdi-chevron-left"></i></button>
+                        <button class="button is-small prev-year"><span class="iconify" data-icon="mdi-chevron-double-left"></span></button>
+                        <button class="button is-small prev-month"><span class="iconify" data-icon="mdi-chevron-left"></span></button>
                     </div>
                 </div>
 
@@ -198,8 +198,8 @@ class BulmaDatePicker {
 
                 <div class="level-right">
                     <div class="level-item">
-                        <button class="button is-small next-month"><i class="bulma mdi mdi-chevron-right"></i></button>
-                        <button class="button is-small next-year"><i class="bulma mdi mdi-chevron-double-right"></i></button>
+                        <button class="button is-small next-month"><span class="iconify" data-icon="mdi-chevron-right"></span></button>
+                        <button class="button is-small next-year"><span class="iconify" data-icon="mdi-chevron-double-right"></span></button>
                     </div>
                 </div>
             </nav>
