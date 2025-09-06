@@ -53,6 +53,22 @@ class BulmaDatePicker {
         this._triggerSelect();
     }
 
+    activate() {
+        this.options.static = false;
+        this._renderInputs();
+        this._renderDropdown();
+        this._bindEvents();
+        this._renderCalendar();
+    }
+
+    deactivate() {
+        this.options.static = true;
+        this._renderInputs();
+        this._renderDropdown();
+        this._bindEvents();
+        this._renderCalendar();
+    }
+
     _triggerSelect() {
         const event = new CustomEvent("select", {
             detail: { value: this.getValue() }

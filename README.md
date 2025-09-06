@@ -29,18 +29,21 @@ See the [example page](https://danielmartling.github.io/BulmaDatePicker/)! Some 
 
 ### Options table
 
-| Option       | Type      | Default | Description                                                            |
-| ------------ | --------- | ------- | ---------------------------------------------------------------------- |
-| `range`      | `Boolean` | `false` | `false` = pick a single date. `true` = choose two dates, a date range. |
-| `alwaysOpen` | `Boolean` | `false` | Turns the control into a permanent calendar.                           |
+| Option       | Type      | Default | Description                                                                    |
+| ------------ | --------- | ------- | ------------------------------------------------------------------------------ |
+| `range`      | `Boolean` | `false` | `false` = pick a single date. `true` = choose two dates, a date range.         |
+| `alwaysOpen` | `Boolean` | `false` | Turns the control into a permanent calendar.                                   |
+| `static`     | `Boolean` | `false` | Disables input boxes, no manual entries. `.setValue(value)` can still be used! |
 
 ### Methods
 
-| Method            | Description                                                                                                                                                   |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Method             | Description                                                                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `.getValue()`      | Selected dates, either as a string or an array of strings depending on range option.                                                                          |
 | `.setValue(value)` | Takes a string or array of two strings depending on range option. Sets the text of the input controls, and selects the date or date interval in the calendar. |
-| `.clear()`  | Clears the text inputs and removes calendar selections. |
+| `.clear()`         | Clears the text inputs and removes calendar selections.                                                                                                       |
+| `.activate()`      | Makes the control editable.                                                                                                                                   |
+| `.deactivates()`   | Makes the control static.                                                                                                                                     |
 
 ## Pictures
 
