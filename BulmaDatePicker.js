@@ -3,7 +3,8 @@ class BulmaDatePicker {
         this.container = container;
         this.options = Object.assign({
             range: false,
-            alwaysOpen: false
+            alwaysOpen: false,
+            static: false
         }, options);
 
         this.currentMonth = new Date();
@@ -69,7 +70,7 @@ class BulmaDatePicker {
         let startControl = document.createElement("div");
         startControl.className = "control has-icons-right";
         startControl.innerHTML = `
-            <input class="input start-date calendar-toggle" type="text" placeholder="YYYY-MM-DD">
+            <input class="input start-date calendar-toggle" type="text" placeholder="YYYY-MM-DD" ${this.options.static ? "readonly" : ""}>
             <span class="icon is-right is-clickable calendar-toggle">
                 <i class="bulma mdi ${this.options.range ? 'mdi-calendar-range' : 'mdi-calendar'}"></i>
             </span>
@@ -95,7 +96,7 @@ class BulmaDatePicker {
             let endControl = document.createElement("div");
             endControl.className = "control has-icons-right";
             endControl.innerHTML = `
-            <input class="input end-date calendar-toggle" type="text" placeholder="YYYY-MM-DD">
+            <input class="input end-date calendar-toggle" type="text" placeholder="YYYY-MM-DD" ${this.options.static ? "readonly" : ""}>
             <span class="icon is-right is-clickable calendar-toggle">
                 <i class="bulma mdi mdi-calendar-range"></i>
             </span>
@@ -122,7 +123,7 @@ class BulmaDatePicker {
     }
 
     _bindEvents() {
-        if (this.options.alwaysOpen) {
+        if (this.options.alwaysOpen || this.options.static) {
             return;
         }
 
@@ -217,6 +218,9 @@ class BulmaDatePicker {
             let dateStr = toString(dateObj);
 
             column.addEventListener('click', (e) => {
+                if (this.options.static) {
+                    return;
+                }
                 e.stopPropagation();
                 if (this.options.range) {
                     if (!this.range[0]) {

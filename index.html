@@ -46,6 +46,8 @@
                     <div class="content">
                         <p>Date picker
                         <div id="single"></div></p>
+                        <p>Static picker
+                        <div id="static"></div></p>
                         <p>Range picker
                         <div id="range"></div></p>
                     </div>
@@ -69,6 +71,8 @@
 
     const range = new BulmaDatePicker(document.getElementById('range'), { range: true });
 
+    const static = new BulmaDatePicker(document.getElementById('static'), { range: false, static: true });
+
     const openDate = new BulmaDatePicker(document.getElementById('openDate'), { alwaysOpen: true });
 
     const openRange = new BulmaDatePicker(document.getElementById('openRange'), { range: true, alwaysOpen: true });
@@ -76,6 +80,7 @@
     document.getElementById("setDateButton")
         .addEventListener("click", () => {
             single.setValue("2025-09-01");
+            static.setValue("2025-09-01");
             openDate.setValue("2025-09-01");
         });
 
@@ -88,12 +93,17 @@
     document.getElementById("clearButton")
         .addEventListener("click", () => {
             single.clear();
+            static.clear();
             range.clear();
             openDate.clear();
             openRange.clear();
         });
 
     single.container.addEventListener("select", (e) => {
+        document.getElementById("dateSelected").innerHTML = e.detail.value;
+    })
+
+    static.container.addEventListener("select", (e) => {
         document.getElementById("dateSelected").innerHTML = e.detail.value;
     })
 
