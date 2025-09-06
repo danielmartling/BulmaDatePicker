@@ -17,7 +17,7 @@ Choose a date or a date range from a input constructed from Bulma css elements.
 
 1. Clone the repo.
 2. Copy `BulmaDatePicker.js` and `BulmaDatePicker.css` to your project.
-3. Bulma css and mdi fonts are required. Include `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">` and `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" />` in the head of your html file.
+3. Bulma css and mdi fonts (through iconify) are required. Include `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">` and `<script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>` in the head of your html file.
 4. Include eg. `<script src="BulmaDatePicker.js"></script>` and `<link rel="stylesheet" href="BulmaDatePicker.css">` in the head of your html file.
 
 ## Usage example
